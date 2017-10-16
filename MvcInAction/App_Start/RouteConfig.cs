@@ -9,6 +9,22 @@ namespace MvcInAction
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // route with constraint
+            routes.MapRoute(
+                name: "ConstraintRoute",
+                url: "constraint/{id}",
+                defaults: new { controller = "constraint", action = "Constraint" },
+                constraints: new { id = "[0-9]+" }
+            );
+
+            // route with no constraint
+            routes.MapRoute(
+                name: "NoConstraintRoute",
+                url: "constraint/{id}",
+                defaults: new { controller = "constraint", action = "NoConstraint" }
+            );
+
+            // default route
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
