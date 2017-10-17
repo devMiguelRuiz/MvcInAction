@@ -57,7 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActionResults\XmlResultExtension.cs" />
+    <Compile Include="ActionResults\XmlActionResultExtension.cs" />
     <Compile Include="ActionResults\XmlActionResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

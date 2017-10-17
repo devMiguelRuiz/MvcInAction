@@ -53,13 +53,14 @@ namespace MvcInAction.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,FirstName,LastName,Email")] Contact contact)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                _db.Add(contact);
-                return RedirectToAction("Index");
+                return View(contact);
             }
 
-            return View(contact);
+            _db.Add(contact);
+
+            return RedirectToAction("Index");
         }
 
         // GET: Contact/Edit/5
@@ -75,6 +76,7 @@ namespace MvcInAction.Controllers
             {
                 return HttpNotFound();
             }
+
             return View(contact);
         }
 
@@ -100,11 +102,13 @@ namespace MvcInAction.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Contact contact = _db.Find(id);
             if (contact == null)
             {
                 return HttpNotFound();
             }
+
             return View(contact);
         }
 
@@ -114,6 +118,11 @@ namespace MvcInAction.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Contact contact = _db.Find(id);
+            if (contact == null)
+            {
+                return HttpNotFound();
+            }
+
             _db.Delete(contact);
 
             return RedirectToAction("Index");

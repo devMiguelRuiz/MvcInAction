@@ -2,7 +2,7 @@
 
 namespace MvcInAction.Utilities.ActionResults
 {
-    public static class XmlResultExtension
+    public static class XmlActionResultExtension
     {
         public static ActionResult XmlFileResult<T>(this Controller controller, T contentData, string fileName)
         {
