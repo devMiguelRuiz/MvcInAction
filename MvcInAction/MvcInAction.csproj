@@ -151,6 +151,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ConstraintController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -205,10 +206,13 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Constraint\Index.cshtml" />
+    <Content Include="Views\Contact\Create.cshtml" />
+    <Content Include="Views\Contact\Delete.cshtml" />
+    <Content Include="Views\Contact\Details.cshtml" />
+    <Content Include="Views\Contact\Edit.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -225,6 +229,10 @@
     <ProjectReference Include="..\MvcInAction.Data\MvcInAction.Data.csproj">
       <Project>{6b8c79c3-806f-48d7-b5ad-90be1dc23b68}</Project>
       <Name>MvcInAction.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utilities\MvcInAction.Utilities.csproj">
+      <Project>{121d64e6-e1a0-4c37-8c47-16a1dcc107fe}</Project>
+      <Name>MvcInAction.Utilities</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

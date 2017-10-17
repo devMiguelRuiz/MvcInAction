@@ -1,8 +1,7 @@
 namespace MvcInAction.Data.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class InitialCreate : DbMigration
     {
         public override void Up()
@@ -11,10 +10,10 @@ namespace MvcInAction.Data.Migrations
                 "dbo.Contacts",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
-                        FirstName = c.String(nullable: false, maxLength: 200),
-                        LastName = c.String(nullable: false, maxLength: 200),
-                        Email = c.String(nullable: false),
+                        Id = c.Int(false, true),
+                        FirstName = c.String(false, 200),
+                        LastName = c.String(false, 200),
+                        Email = c.String(false)
                     })
                 .PrimaryKey(t => t.Id);
             
