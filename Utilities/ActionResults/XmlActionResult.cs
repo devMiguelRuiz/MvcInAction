@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 
 namespace MvcInAction.Utilities.ActionResults
 {
-    public class XmlActionResult<T>: ActionResult
+    public class XmlActionResult<T> : ActionResult
     {
         private readonly T _data;
         private readonly string _fileName;
@@ -31,7 +31,5 @@ namespace MvcInAction.Utilities.ActionResults
                 httpContextBase.Response.Write(xmlWriter);
             }
         }
-
-
     }
 }

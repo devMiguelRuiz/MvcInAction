@@ -21,5 +21,11 @@ namespace MvcInAction.Controllers
             ViewBag.Message = $"This is the page with 'no constraint', you sent {id} as parameter.";
             return View("Index");
         }
+
+        public ActionResult Activity(string activity, string name)
+        {
+            ViewBag.Message = $"This is the Activity page, you sent {activity} and {name} as parameters.";
+            return View("Index");
+        }
     }
 }
