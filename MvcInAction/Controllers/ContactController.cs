@@ -27,6 +27,13 @@ namespace MvcInAction.Controllers
             return this.XmlFileResult(_db.GetAll(), "contacts.xml");
         }
 
+        // GET: Contact/GetJson/
+        public ActionResult GetJson()
+        {
+            // TODO: Call here yout Json file ActionResult
+            return null;
+        }
+
         // GET: Contact/Details/5
         public ActionResult Details(int? id)
         {

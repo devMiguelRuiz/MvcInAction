@@ -26,7 +26,7 @@ namespace MvcInAction.Utilities.ActionResults
 
             using (var xmlWriter = new StringWriter())
             {
-                var xml = new XmlSerializer(typeof(T));
+                var xml = new XmlSerializer(_data.GetType());
                 xml.Serialize(xmlWriter, _data);
                 httpContextBase.Response.Write(xmlWriter);
             }

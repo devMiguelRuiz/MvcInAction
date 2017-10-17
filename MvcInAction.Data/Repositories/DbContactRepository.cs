@@ -1,6 +1,7 @@
 ﻿using MvcInAction.Data.Entities;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
 
 namespace MvcInAction.Data.Repositories
 {
@@ -15,7 +16,7 @@ namespace MvcInAction.Data.Repositories
 
         public IEnumerable<Contact> GetAll()
         {
-            return _db.Set<Contact>();
+            return _db.Set<Contact>().ToList();
         }
 
         public Contact Find(params object[] keyValues)
