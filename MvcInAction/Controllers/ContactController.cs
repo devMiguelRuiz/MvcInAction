@@ -1,9 +1,6 @@
-﻿using System;
-using MvcInAction.Data;
-using MvcInAction.Data.Entities;
+﻿using MvcInAction.Data.Entities;
+using MvcInAction.Data.Repositories;
 using MvcInAction.Utilities.ActionResults;
-using System.Data.Entity;
-using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 
@@ -11,17 +8,23 @@ namespace MvcInAction.Controllers
 {
     public class ContactController : Controller
     {
-        private readonly RepositoryContext _db = new RepositoryContext();
+        private readonly IContactRepository _db;
+
+        public ContactController()
+        {
+            _db = new DbContactRepository();
+        }
 
         // GET: Contact
         public ActionResult Index()
         {
-            return View(_db.Contacts.ToList());
+            return View(_db.GetAll());
         }
 
+        // GET: Contact/GetXml/
         public ActionResult GetXml()
         {
-            return this.XmlFileResult(_db.Contacts.ToList(), "contacts.xml");
+            return this.XmlFileResult(_db.GetAll(), "contacts.xml");
         }
 
         // GET: Contact/Details/5
@@ -32,7 +35,7 @@ namespace MvcInAction.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            Contact contact = _db.Contacts.Find(id);
+            Contact contact = _db.Find(id);
             if (contact == null)
             {
                 return HttpNotFound();
@@ -52,8 +55,7 @@ namespace MvcInAction.Controllers
         {
             if (ModelState.IsValid)
             {
-                _db.Contacts.Add(contact);
-                _db.SaveChanges();
+                _db.Add(contact);
                 return RedirectToAction("Index");
             }
 
@@ -67,7 +69,8 @@ namespace MvcInAction.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Contact contact = _db.Contacts.Find(id);
+
+            Contact contact = _db.Find(id);
             if (contact == null)
             {
                 return HttpNotFound();
@@ -76,19 +79,18 @@ namespace MvcInAction.Controllers
         }
 
         // POST: Contact/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,Email")] Contact contact)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                _db.Entry(contact).State = EntityState.Modified;
-                _db.SaveChanges();
-                return RedirectToAction("Index");
+                return View(contact);
             }
-            return View(contact);
+
+            _db.Edit(contact);
+
+            return RedirectToAction("Index");
         }
 
         // GET: Contact/Delete/5
@@ -98,7 +100,7 @@ namespace MvcInAction.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Contact contact = _db.Contacts.Find(id);
+            Contact contact = _db.Find(id);
             if (contact == null)
             {
                 return HttpNotFound();
@@ -111,9 +113,9 @@ namespace MvcInAction.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Contact contact = _db.Contacts.Find(id);
-            _db.Contacts.Remove(contact ?? throw new InvalidOperationException());
-            _db.SaveChanges();
+            Contact contact = _db.Find(id);
+            _db.Delete(contact);
+
             return RedirectToAction("Index");
         }
 
