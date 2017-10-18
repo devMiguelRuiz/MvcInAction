@@ -59,6 +59,8 @@
   <ItemGroup>
     <Compile Include="ActionResults\XmlActionResultExtension.cs" />
     <Compile Include="ActionResults\XmlActionResult.cs" />
+    <Compile Include="Filters\CustomExceptionFilter.cs" />
+    <Compile Include="Filters\CustomOverridedExceptionFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

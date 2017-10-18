@@ -6,8 +6,27 @@
 </head>
 <body>
     <hgroup>
-        <h1>Error.</h1>
-        <h2>An error occurred while processing your request.</h2>
-    </hgroup>
+        <h1>An error occurred while processing your request.</h1>
+        <p>See more info here:</p>
+
+        <table class="table">
+            <tr>
+                <th>Element</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>Controller</td>
+                <td>@ViewBag.Controller</td>
+            </tr>
+            <tr>
+                <td>Action</td>
+                <td>@ViewBag.Action</td>
+            </tr>
+            <tr>
+                <td>Error</td>
+                <td>@ViewBag.Error</td>
+            </tr>
+        </table>
+</hgroup>
 </body>
 </html>
