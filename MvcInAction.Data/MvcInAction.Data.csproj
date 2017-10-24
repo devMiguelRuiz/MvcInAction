@@ -41,13 +41,19 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Company.cs" />
     <Compile Include="Entities\Contact.cs" />
     <Compile Include="Migrations\201710161907132_InitialCreate.cs" />
     <Compile Include="Migrations\201710161907132_InitialCreate.Designer.cs">
       <DependentUpon>201710161907132_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710240315170_AddingCompanies.cs" />
+    <Compile Include="Migrations\201710240315170_AddingCompanies.Designer.cs">
+      <DependentUpon>201710240315170_AddingCompanies.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\DbContactRepository.cs" />
+    <Compile Include="Repositories\ICompanyRepository.cs" />
     <Compile Include="Repositories\IContactRepository.cs" />
     <Compile Include="RepositoryContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -59,6 +65,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201710161907132_InitialCreate.resx">
       <DependentUpon>201710161907132_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710240315170_AddingCompanies.resx">
+      <DependentUpon>201710240315170_AddingCompanies.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

@@ -20,6 +20,11 @@ namespace MvcInAction.Data.Migrations
                 new Contact {FirstName = "Juan", LastName = "Perez", Email = "jPerez@epam.com"},
                 new Contact {FirstName = "Oscar", LastName = "Lopez", Email = "oLopez@epam.com"},
                 new Contact {FirstName = "Miguel", LastName = "Ruiz", Email = "mRuiz@epam.com"});
+
+            context.Companies.AddOrUpdate(c => c.Name,
+                new Company{Name = "EPAM", Address = "Periferico Sur 8110, Tlaquepaque, Jalisco.", Email = "info@epam.com"},
+                new Company {Name = "MyCompany", Address = "MyCompany street", Email = "info@mycompany.com"},
+                new Company {Name = "YourCompany", Address = "YourCompany street", Email = "info@yourcompany.com"});
         }
     }
 }

@@ -1,31 +1,41 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "MVC IN ACTION";
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <h1>@ViewBag.Title</h1>
+    <p>Demo ASP.NET MVC 5 project for EPAM .Net Courses</p>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
+<div class="row">   
+    <h2><a href="#sessions" aria-hidden="true" class="anchor" id="user-content-sessions"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>SESSIONS</h2>
+    <p><strong>MVC - Request Handling</strong> (<em>Miercoles 25 de Octubre 9:30 a.m. - 11:30 a.m.</em>)</p>
+    <ul>
+        <li>Request lifecycle and pipeline</li>
+        <li>Routing concepts</li>
+        <li>Implementation of custom action results</li>
+        <li>Filters concept</li>
+        <li>Custom filters development</li>
+        <li>Dependency injection</li>
+    </ul>
+    <p><strong>MVC - Testing</strong> (<em>Jueves 26 de Octubre 2:30 p.m. - 4:30 p.m.</em>)</p>
+    <ul>
+        <li>Unit testing in MVC</li>
+        <li>BDD approach for MVC</li>
+        <li>Testing of routing</li>
+    </ul>
+    <h2><a href="#setup" aria-hidden="true" class="anchor" id="user-content-setup"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>SETUP</h2>
+    <p>1.- Download and install Visual Studio 2017.</p>
+    <p>2.- Download and install <strong>git</strong> distributed version control system  in your machine, you can download it from the next page: <a href="https://git-scm.com/download/">https://git-scm.com/download/</a></p>
+    <p>3.- Clone the repository in a local folder:</p>
+    <blockquote>
+        <p><em>git clone <a href="https://github.com/miguelEpam/MvcInAction.git">https://github.com/miguelEpam/MvcInAction.git</a></em></p>
+    </blockquote>
+    <p>4.- Open the <strong>MvcInAction solution file(MvcInAction.sln)</strong> and restore all the missing packages usin NuGet package manager.</p>
+    <p>5.- Open the <strong>Package Manager Console</strong> and update the LocalDB database running the following command:</p>
+    <blockquote>
+        <p><em>update-database</em></p>
+    </blockquote>
+    <h2><a href="#contact" aria-hidden="true" class="anchor" id="user-content-contact"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CONTACT</h2>
+    <p>Please, if you have any question or doubt don´t hesitate to contact me by e-mail, skype or skype for bussiness.</p>
 </div>
