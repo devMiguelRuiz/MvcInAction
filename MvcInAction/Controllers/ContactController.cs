@@ -1,8 +1,10 @@
-﻿using MvcInAction.Data.Entities;
+﻿using System;
+using MvcInAction.Data.Entities;
 using MvcInAction.Data.Repositories;
 using MvcInAction.Utilities.ActionResults;
 using System.Net;
 using System.Web.Mvc;
+using MvcInAction.Utilities.Filters;
 
 namespace MvcInAction.Controllers
 {
@@ -10,14 +12,16 @@ namespace MvcInAction.Controllers
     {
         private readonly IContactRepository _db;
 
-        public ContactController()
+
+        public ContactController(IContactRepository repo)
         {
-            _db = new DbContactRepository();
+            _db = repo;
         }
 
         // GET: Contact
         public ActionResult Index()
         {
+            
             return View(_db.GetAll());
         }
 
