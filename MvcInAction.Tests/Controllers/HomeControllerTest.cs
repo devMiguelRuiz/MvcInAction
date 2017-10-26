@@ -8,16 +8,36 @@ namespace MvcInAction.Tests.Controllers
     public class HomeControllerTest
     {
         [TestMethod]
-        public void Index()
+        public void WhenIndexActionRequested_ViewResultIsNotNull()
         {
-            // Arrange
-            HomeController controller = new HomeController();
-
-            // Act
-            ViewResult result = controller.Index() as ViewResult;
+            // arrange and act
+            ViewResult result = null;
 
             // Assert
             Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public void WhenIndexActionRequested_ViewResultIsNotNullAndHasValidName()
+        {
+            // arrange and act
+            ViewResult result = null;
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(result.ViewName, "Index");
+        }
+
+        [TestMethod]
+        public void WhenIndexActionRequested_ViewResultIsNotNullAndViewDataIsNotNullButEmpty()
+        {
+            // Arrange and act
+            ViewResult result = null;
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.IsNotNull(result.ViewData);
+            Assert.AreEqual(result.ViewData.Count, 0);
         }
     }
 }
