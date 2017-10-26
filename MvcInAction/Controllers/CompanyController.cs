@@ -1,21 +1,23 @@
-﻿using System;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Web.Mvc;
-using MvcInAction.Data;
 using MvcInAction.Data.Entities;
+using MvcInAction.Data.Repositories;
 
 namespace MvcInAction.Controllers
 {
     public class CompanyController : Controller
     {
-        private readonly RepositoryContext _db = new RepositoryContext();
+        private readonly ICompanyRepository _db;
+
+        public CompanyController(ICompanyRepository repo)
+        {
+            _db = repo;
+        }
 
         // GET: Company
         public ActionResult Index()
         {
-            return View(_db.Companies.ToList());
+            return View(_db.GetAll());
         }
 
         // GET: Company/Details/5
@@ -25,7 +27,7 @@ namespace MvcInAction.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Company company = _db.Companies.Find(id);
+            Company company = _db.Find(id);
             if (company == null)
             {
                 return HttpNotFound();
@@ -48,8 +50,7 @@ namespace MvcInAction.Controllers
         {
             if (ModelState.IsValid)
             {
-                _db.Companies.Add(company);
-                _db.SaveChanges();
+                _db.Add(company);
                 return RedirectToAction("Index");
             }
 
@@ -63,7 +64,7 @@ namespace MvcInAction.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Company company = _db.Companies.Find(id);
+            Company company = _db.Find(id);
             if (company == null)
             {
                 return HttpNotFound();
@@ -80,8 +81,7 @@ namespace MvcInAction.Controllers
         {
             if (ModelState.IsValid)
             {
-                _db.Entry(company).State = EntityState.Modified;
-                _db.SaveChanges();
+                _db.Edit(company);
                 return RedirectToAction("Index");
             }
             return View(company);
@@ -94,7 +94,7 @@ namespace MvcInAction.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Company company = _db.Companies.Find(id);
+            Company company = _db.Find(id);
             if (company == null)
             {
                 return HttpNotFound();
@@ -107,9 +107,8 @@ namespace MvcInAction.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Company company = _db.Companies.Find(id);
-            _db.Companies.Remove(company ?? throw new InvalidOperationException());
-            _db.SaveChanges();
+            Company company = _db.Find(id);
+            _db.Delete(company);
             return RedirectToAction("Index");
         }
 

@@ -8,12 +8,12 @@ namespace MvcInAction.Data.Repositories
     {
         IEnumerable<Company> GetAll();
 
-        Contact Find(params object[] keyValues);
+        Company Find(params object[] keyValues);
 
-        void Add(Company contact);
+        void Add(Company company);
 
-        void Edit(Company contact);
+        void Edit(Company company);
 
-        void Delete(Company contact);
+        void Delete(Company company);
     }
 }

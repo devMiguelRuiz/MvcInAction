@@ -52,6 +52,7 @@
       <DependentUpon>201710240315170_AddingCompanies.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Repositories\DbCompanyRepository.cs" />
     <Compile Include="Repositories\DbContactRepository.cs" />
     <Compile Include="Repositories\ICompanyRepository.cs" />
     <Compile Include="Repositories\IContactRepository.cs" />

@@ -39,6 +39,7 @@ namespace MvcInAction.App_Start
             // TODO: Register your types here
             // container.RegisterType<IProductRepository, ProductRepository>();
             container.RegisterType<IContactRepository, DbContactRepository>();
+            container.RegisterType<ICompanyRepository, DbCompanyRepository>();
         }
     }
 }
