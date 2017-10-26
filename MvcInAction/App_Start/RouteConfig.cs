@@ -13,7 +13,7 @@ namespace MvcInAction
             routes.MapRoute(
                 name: "ConstraintRoute",
                 url: "constraint/{id}",
-                defaults: new { controller = "constraint", action = "Constraint" },
+                defaults: new { controller = "Constraint", action = "Constraint" },
                 constraints: new { id = "[0-9]+" }
             );
 
@@ -21,7 +21,7 @@ namespace MvcInAction
             routes.MapRoute(
                 name: "NoConstraintRoute",
                 url: "constraint/{id}",
-                defaults: new { controller = "constraint", action = "NoConstraint" }
+                defaults: new { controller = "Constraint", action = "NoConstraint" }
             );
 
             // default route
