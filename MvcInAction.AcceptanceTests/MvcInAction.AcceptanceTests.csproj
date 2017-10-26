@@ -53,6 +53,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
     </Reference>
@@ -81,9 +82,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Calculator.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\ConstraintRoutes.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConstraintRoutes.feature</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\Calculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Steps\CalculatorSteps.cs" />
+    <Compile Include="Steps\ConstraintRoutesFeatureSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -91,9 +98,17 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Calculator.feature.cs</LastGenOutput>
     </None>
+    <None Include="Features\ConstraintRoutes.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ConstraintRoutes.feature.cs</LastGenOutput>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MvcInAction.Tests\MvcInAction.Tests.csproj">
+      <Project>{f2ddf26b-4298-4c47-b7fb-2eccec3718d5}</Project>
+      <Name>MvcInAction.Tests</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MvcInAction\MvcInAction.csproj">
       <Project>{EB97CA58-2739-462A-AE8A-ABAB40686188}</Project>
       <Name>MvcInAction</Name>
