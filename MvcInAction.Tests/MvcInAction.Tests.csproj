@@ -98,6 +98,9 @@
     <Compile Include="Controllers\ContactControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
+    <Compile Include="Stubs\StubHttpContextForRouting.cs" />
+    <Compile Include="Stubs\StubHttpRequestForRouting.cs" />
+    <Compile Include="Stubs\StubHttpResponseForRouting.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
