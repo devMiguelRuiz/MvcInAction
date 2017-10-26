@@ -8,7 +8,7 @@ namespace MvcInAction.Data.Repositories
     {
         IEnumerable<Company> GetAll();
 
-        Company Find(params object[] keyValues);
+        Company Find(int id);
 
         void Add(Company company);
 

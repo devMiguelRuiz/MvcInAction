@@ -27,7 +27,7 @@ namespace MvcInAction.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Company company = _db.Find(id);
+            Company company = _db.Find(id.Value);
             if (company == null)
             {
                 return HttpNotFound();
@@ -64,7 +64,7 @@ namespace MvcInAction.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Company company = _db.Find(id);
+            Company company = _db.Find(id.Value);
             if (company == null)
             {
                 return HttpNotFound();
@@ -94,7 +94,7 @@ namespace MvcInAction.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Company company = _db.Find(id);
+            Company company = _db.Find(id.Value);
             if (company == null)
             {
                 return HttpNotFound();

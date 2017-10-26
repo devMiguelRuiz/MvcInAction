@@ -19,9 +19,9 @@ namespace MvcInAction.Data.Repositories
             return _db.Set<Contact>().ToList();
         }
 
-        public Contact Find(params object[] keyValues)
+        public Contact Find(int id)
         {
-            return _db.Contacts.Find(keyValues);
+            return _db.Contacts.Find(id);
         }
 
         public void Add(Contact contact)

@@ -19,9 +19,9 @@ namespace MvcInAction.Data.Repositories
             return _db.Set<Company>().ToList();
         }
 
-        public Company Find(params object[] keyValues)
+        public Company Find(int id)
         {
-            return _db.Companies.Find(keyValues);
+            return _db.Companies.Find(id);
         }
 
         public void Add(Company company)

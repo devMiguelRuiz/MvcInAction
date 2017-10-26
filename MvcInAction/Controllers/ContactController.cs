@@ -42,7 +42,7 @@ namespace MvcInAction.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            Contact contact = _db.Find(id);
+            Contact contact = _db.Find(id.Value);
             if (contact == null)
             {
                 return HttpNotFound();
@@ -78,7 +78,7 @@ namespace MvcInAction.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            Contact contact = _db.Find(id);
+            Contact contact = _db.Find(id.Value);
             if (contact == null)
             {
                 return HttpNotFound();
@@ -110,7 +110,7 @@ namespace MvcInAction.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            Contact contact = _db.Find(id);
+            Contact contact = _db.Find(id.Value);
             if (contact == null)
             {
                 return HttpNotFound();

@@ -8,7 +8,7 @@ namespace MvcInAction.Data.Repositories
     {
         IEnumerable<Contact> GetAll();
 
-        Contact Find(params object[] keyValues);
+        Contact Find(int id);
 
         void Add(Contact contact);
 
