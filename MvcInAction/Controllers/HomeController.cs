@@ -6,6 +6,7 @@ namespace MvcInAction.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.Title = "MVC IN ACTION";
             return View("Index");
         }
     }
