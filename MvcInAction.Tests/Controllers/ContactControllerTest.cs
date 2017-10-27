@@ -14,7 +14,7 @@ namespace MvcInAction.Tests.Controllers
     public class ContactControllerTest
     {
         private IContactRepository _mockRepository;
-        
+
         [TestInitialize]
         public void Setup()
         {
@@ -74,10 +74,72 @@ namespace MvcInAction.Tests.Controllers
 
             // Act
             var viewResult = controller.Index() as ViewResult;
-            
+
             // Assert
             Assert.IsNotNull(viewResult);
         }
 
+        [TestMethod]
+        public void WhenIndexActionRequested_ViewResultIsNotNullAndIsValidModel()
+        {
+            // arrange
+            var controller = new ContactController(_mockRepository);
+
+            // Act
+            var viewResult = controller.Index() as ViewResult;
+
+            // Assert
+            Assert.IsNotNull(viewResult);
+            Assert.IsNotNull(viewResult.Model);
+            Assert.IsInstanceOfType(viewResult.Model, typeof(IEnumerable<Contact>));
+        }
+
+        [TestMethod]
+        public void WhenGetXmlActionRequested_ResultIsNotNullAndIsXmlActionResult()
+        {
+            // arrange
+            var controller = new ContactController(_mockRepository);
+
+            // Act
+            var viewResult = controller.GetXml();
+
+            // Assert
+            Assert.IsNotNull(viewResult);
+            Assert.IsInstanceOfType(viewResult, typeof(XmlActionResult<IEnumerable<Contact>>));
+        }
+
+        [TestMethod]
+        public void WhenDetailsActionRequested_ViewResultIsNotNullAndModelIsTheExpected()
+        {
+            // arrange
+            var controller = new ContactController(_mockRepository);
+            var expected = _mockRepository.Find(1);
+
+            // Act
+            var viewResult = controller.Details(1) as ViewResult;
+
+            // Assert
+            Assert.IsNotNull(viewResult);
+            Assert.AreEqual(viewResult.Model, expected);
+        }
+
+        [TestMethod]
+        public void WhenAddActionRequested_ResultIsNotNullAndAdditionIsSuccess()
+        {
+            // arrange
+            var controller = new ContactController(_mockRepository);
+            var newContact = new Contact { FirstName = "Arnoldo", LastName = "Fake", Email = "hola@hola.com" };
+            int countBeforeAddition = _mockRepository.GetAll().Count();
+
+            // Act
+            var viewResult = controller.Create(newContact) as RedirectToRouteResult;
+
+            // Assert
+            Assert.IsNotNull(viewResult);
+
+            int counterAfterAdition = _mockRepository.GetAll().Count();
+
+            Assert.AreEqual(countBeforeAddition + 1, counterAfterAdition);
+        }
     }
 }

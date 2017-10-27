@@ -18,14 +18,14 @@ namespace MvcInAction.AcceptanceTests.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.2.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [Microsoft.VisualStudio.TestTools.UnitTesting.TestClassAttribute()]
-    public partial class CalculatorFeature
+    public partial class HomeControllerFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
         private Microsoft.VisualStudio.TestTools.UnitTesting.TestContext _testContext;
         
-#line 1 "Calculator.feature"
+#line 1 "HomeController.feature"
 #line hidden
         
         public virtual Microsoft.VisualStudio.TestTools.UnitTesting.TestContext TestContext
@@ -44,8 +44,8 @@ namespace MvcInAction.AcceptanceTests.Features
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner(null, 0);
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Calculator", "\tIn order to avoid silly mistakes\r\n\tAs a math idiot\r\n\tI want to be told the sum o" +
-                    "f two numbers", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "HomeController", "In order to visualize the asp.net MVC demo app\r\nAs a Trainee\r\nI want to access th" +
+                    "e Home page", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -60,9 +60,9 @@ namespace MvcInAction.AcceptanceTests.Features
         public virtual void TestInitialize()
         {
             if (((testRunner.FeatureContext != null) 
-                        && (testRunner.FeatureContext.FeatureInfo.Title != "Calculator")))
+                        && (testRunner.FeatureContext.FeatureInfo.Title != "HomeController")))
             {
-                global::MvcInAction.AcceptanceTests.Features.CalculatorFeature.FeatureSetup(null);
+                global::MvcInAction.AcceptanceTests.Features.HomeControllerFeature.FeatureSetup(null);
             }
         }
         
@@ -84,23 +84,21 @@ namespace MvcInAction.AcceptanceTests.Features
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Add two numbers")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Calculator")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Default home page message")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "HomeController")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("mytag")]
-        public virtual void AddTwoNumbers()
+        public virtual void DefaultHomePageMessage()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add two numbers", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Default home page message", new string[] {
                         "mytag"});
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
- testRunner.Given("I have entered 40 into the calculator", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.Given("The trainee have navigated to the Home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 9
- testRunner.And("I have also entered 70 into the calculator", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.When("The trainee is in the Home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 10
- testRunner.When("I press add", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 11
- testRunner.Then("the result should be 110 on the screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then("The Page title should say \"MVC IN ACTION\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

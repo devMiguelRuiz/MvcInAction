@@ -1,5 +1,5 @@
 ﻿Feature: ConstraintRoutes feature
-	In order verify the routes for Constraint Controller are right
+	In order to verify the routes for Constraint Controller are right
 	As an User
 	I want to verify the routes are handled correctly
 

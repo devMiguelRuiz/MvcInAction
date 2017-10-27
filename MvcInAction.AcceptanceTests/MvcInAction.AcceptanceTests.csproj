@@ -87,9 +87,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ConstraintRoutes.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\HomeController.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HomeController.feature</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\Calculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Steps\CalculatorSteps.cs" />
+    <Compile Include="Steps\ConstraintRoutesFeatureSteps.cs" />
+    <Compile Include="Steps\HomeControllerSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -100,6 +107,10 @@
     <None Include="Features\ConstraintRoutes.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ConstraintRoutes.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\HomeController.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>HomeController.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>

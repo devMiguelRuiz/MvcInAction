@@ -44,8 +44,8 @@ namespace MvcInAction.AcceptanceTests.Features
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner(null, 0);
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "ConstraintRoutes feature", "\tIn order verify the routes for Constraint Controller are right\r\n\tAs an User\r\n\tI " +
-                    "want to verify the routes are handled correctly", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "ConstraintRoutes feature", "\tIn order to verify the routes for Constraint Controller are right\r\n\tAs an User\r\n" +
+                    "\tI want to verify the routes are handled correctly", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         

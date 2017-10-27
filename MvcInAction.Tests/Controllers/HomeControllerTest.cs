@@ -10,8 +10,11 @@ namespace MvcInAction.Tests.Controllers
         [TestMethod]
         public void WhenIndexActionRequested_ViewResultIsNotNull()
         {
-            // arrange and act
-            ViewResult result = null;
+            // Arrange
+            var controller = new HomeController();
+
+            // Act
+            var result = controller.Index() as ViewResult;
 
             // Assert
             Assert.IsNotNull(result);
@@ -20,8 +23,11 @@ namespace MvcInAction.Tests.Controllers
         [TestMethod]
         public void WhenIndexActionRequested_ViewResultIsNotNullAndHasValidName()
         {
-            // arrange and act
-            ViewResult result = null;
+            // arrange
+            var controller = new HomeController();
+
+            // act
+            var result = controller.Index() as ViewResult;
 
             // Assert
             Assert.IsNotNull(result);
@@ -29,15 +35,18 @@ namespace MvcInAction.Tests.Controllers
         }
 
         [TestMethod]
-        public void WhenIndexActionRequested_ViewResultIsNotNullAndViewDataIsNotNullButEmpty()
+        public void WhenIndexActionRequested_ViewResultIsNotNullAndViewDataIsNotNullAndHasOneElement()
         {
-            // Arrange and act
-            ViewResult result = null;
+            // arrange
+            var controller = new HomeController();
+
+            // act
+            var result = controller.Index() as ViewResult;
 
             // Assert
             Assert.IsNotNull(result);
             Assert.IsNotNull(result.ViewData);
-            Assert.AreEqual(result.ViewData.Count, 0);
+            Assert.AreEqual(1, result.ViewData.Count);
         }
     }
 }
